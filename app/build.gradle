@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+def config = rootProject.ext.android    //配置的全局变量
+def librarys = rootProject.ext.dependencies     //依赖的全局变量
+
+android {
+    compileSdkVersion config.compileSdkVersion
+    defaultConfig {
+        applicationId "com.xchallenge.tnt"
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        vectorDrawables.useSupportLibrary = true //  支持矢量图
+        multiDexEnabled true    //  支持超过65535方法
+    }
+
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+
+    // 内存泄漏检查
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.2'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.3'
+    // 下拉列表
+//    implementation 'com.github.arcadefire:nice-spinner:1.3.7'
+
+    implementation librarys.supportv7
+    implementation librarys.constraint_layout
+    implementation librarys.design
+    implementation librarys.vector_drawable
+    implementation librarys.supportv4
+    implementation librarys.dynamic_animation
+    implementation librarys.multidex
+
+    implementation librarys.retrofit
+    implementation librarys.converter_gson
+    implementation librarys.rxjava
+    implementation librarys.rxandroid
+    implementation librarys.adapter_rxjava2
+
+    implementation librarys.butterknife
+    annotationProcessor librarys.butterknife_compiler
+    implementation librarys.glide
+    annotationProcessor librarys.glide_compiler
+
+    implementation librarys.zxing
+    implementation librarys.okhttp
+    implementation librarys.logging_interceptor
+    implementation librarys.SwipeToLoadLayout
+    implementation librarys.xxpermissions
+    implementation 'android.arch.navigation:navigation-fragment:1.0.0'
+    implementation 'android.arch.navigation:navigation-ui:1.0.0'
+
+}
