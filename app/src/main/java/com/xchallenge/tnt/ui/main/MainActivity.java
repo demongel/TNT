@@ -5,6 +5,8 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -12,7 +14,13 @@ import com.xchallenge.tnt.R;
 import com.xchallenge.tnt.base.BaseActivity;
 import com.xchallenge.tnt.databinding.ActivityMainBinding;
 import com.xchallenge.tnt.ui.home.HomeFragment;
+import com.xchallenge.tnt.ui.login.LoginFragment;
 import com.xchallenge.tnt.ui.my.MineFragment;
+
+import org.opencv.android.BaseLoaderCallback;
+import org.opencv.android.LoaderCallbackInterface;
+import org.opencv.android.OpenCVLoader;
+import org.opencv.core.Core;
 
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
@@ -26,9 +34,19 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
 
     public NavController navController;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if (!OpenCVLoader.initDebug()) {
+            Log.d(TAG, "Internal OpenCV library not found. Using OpenCV Manager for initialization");
+            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION, this, mLoaderCallback);
+        } else {
+            Log.d(TAG, "OpenCV library found inside package. Using it!");
+            mLoaderCallback.onManagerConnected(LoaderCallbackInterface.SUCCESS);
+        }
+
         if (savedInstanceState != null) {
             index = savedInstanceState.getInt("main_index");
         }
@@ -76,6 +94,30 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         }
 
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+    private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
+        @Override
+        public void onManagerConnected(int status) {
+            switch (status) {
+                case LoaderCallbackInterface.SUCCESS: {
+                    Log.i(TAG, "OpenCV loaded successfully");
+//                    mOpenCvCameraView.enableView();
+//                    mOpenCvCameraView.setOnTouchListener(ColorBlobDetectionActivity.this);
+                }
+                break;
+                default: {
+                    super.onManagerConnected(status);
+                }
+                break;
+            }
+        }
+    };
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -133,4 +175,17 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         outState.putInt("main_index", index);
     }
 
+    public void checkLogin() {
+        //  if  not login , show login fragment
+//        binding.login.setVisibility(View.VISIBLE);
+//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+//        transaction.setCustomAnimations(R.anim.bottom_in, R.anim.bottom_out);
+//        transaction.add(R.id.login, new LoginFragment(), "login");
+//        transaction.commit();
+
+        LoginFragment fragment = new LoginFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        fragment.show(transaction, "login");
+
+    }
 }

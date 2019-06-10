@@ -26,9 +26,14 @@ public abstract class BaseFragment<B extends ViewDataBinding> extends Fragment {
         int layoutId = getLayoutId();
         binding = DataBindingUtil.inflate(inflater, layoutId, container, false);
 
+        initData();
+
         initListener();
 
-        return  binding.getRoot() ;
+        return binding.getRoot();
+    }
+
+    public void initData() {
     }
 
     public void initListener() {

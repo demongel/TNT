@@ -54,6 +54,8 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding> {
             public void onClick(View v) {
                 if (!activity.isDestroyed()) {
                     activity.navController.navigate(R.id.action_blankFragment_to_homeDetailFragment);
+                    activity.hideNav();
+                    activity.hideMain();
                 }
             }
         });

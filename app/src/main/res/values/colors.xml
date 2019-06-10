@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <!--<color name="colorPrimary">#008577</color>-->
+    <!--<color name="colorPrimaryDark">#00574B</color>-->
+
     <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#4932E0</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+
+    <color name="white">#FFF</color>
+    <!--75% alpha值，相当于0.25透明度-->
+    <color name="white_75">#BFFFFFFF</color>
+    <color name="white_60">#99FFFFFF</color>
+    <color name="white_40">#66FFFFFF</color>
+    <color name="white_20">#33FFFFFF</color>
+    <!--00%=FF（不透明）    5%=F2    10%=E5    15%=D8    20%=CC    25%=BF    30%=B2    35%=A5    40%=99    45%=8c    50%=7F-->
+    <!--55%=72    60%=66    65%=59    70%=4c    75%=3F    80%=33    85%=21    90%=19    95%=0c    100%=00（全透明）-->
+    <color name="green_color">#0BC09E</color>
+    <color name="red_color">#FF1664</color>
+
+    <color name="title_background">#040D14</color>
+    <color name="background">#14171C</color>
+    <color name="divider">#23262B</color>
+
+    <color name="divider_inner">#302F34</color>
+    <color name="content">#313035</color>
+
+    <color name="bank_card">#F2994A</color>
+    <color name="alipay">#00A0E9</color>
+    <color name="wechat">#3EC658</color>
+
+    <color name="icon">#4532E4</color>
+    <color name="icon_warning">#F5A623</color>
+
+    <color name="login_text_color">#B5A8F2</color>
+    <color name="line_stroke">#9381ED</color>
+
+
+    <color name="alpha_white">#33FFFFFF</color>
+    <color name="light_gray">#9FFF</color>
+    <color name="dark_gray">#999</color>
+    <color name="background_black">#18191E</color>
+
 </resources>
