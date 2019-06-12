@@ -14,4 +14,13 @@
     <string name="sms_code">password</string>
     <string name="get_sms_code">Get SMS Code</string>
     <!--<string name="get_sms_code">Get SMS Code</string>-->
+
+
+    <string name="monday">MON</string>
+    <string name="tuesday">TUE</string>
+    <string name="wednesday">WED</string>
+    <string name="thursday">THU</string>
+    <string name="friday">FRI</string>
+    <string name="saturday">SAT</string>
+    <string name="sunday">SUN</string>
 </resources>

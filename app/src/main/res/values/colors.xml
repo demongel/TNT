@@ -41,4 +41,10 @@
     <color name="dark_gray">#999</color>
     <color name="background_black">#18191E</color>
 
+    <color name="segmented_start">#FF056DAE</color>
+    <color name="segmented_end">#091022</color>
+
+    <color name="bg_top">#091728</color>
+    <color name="bg_bottom">#163C6A</color>
+
 </resources>
