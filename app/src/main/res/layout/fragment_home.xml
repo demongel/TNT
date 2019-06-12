@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -8,29 +10,198 @@
             type="com.xchallenge.tnt.bean.Person" />
     </data>
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.home.HomeFragment">
+        tools:context=".ui.home.HomeFragment"
+        android:orientation="vertical">
+
+        <!--<ImageView-->
+            <!--android:layout_width="90dp"-->
+            <!--android:layout_height="40dp"-->
+            <!--android:src="@drawable/logo"/>-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white">
+            <TextView
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Hello, Eric"
+                android:textSize="16dp"
+                android:fontFamily="monospace"
+                android:textColor="@color/goldenrod"/>
+
+            <TextView
+                android:id="@+id/textview1"
+                android:layout_marginTop="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:text=" * Today is Friday，please remember to fill in Planview."
+                android:fontFamily="monospace"
+                android:textColor="@color/red_color"
+                android:singleLine="true"
+                android:ellipsize="marquee"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:background="@drawable/textview_shape"/>
+
+
+            <SearchView
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/searchview_line">
+            </SearchView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            >
+            <TextView
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="EVENTS"
+                android:fontFamily="monospace"
+                android:textColor="@color/goldenrod"/>
+            <com.youth.banner.Banner
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:id="@+id/mbanner">
+            </com.youth.banner.Banner>
+        </LinearLayout>
+
 
         <!--mock data-->
-        <TextView
-            android:id="@+id/text"
+        <!--<TextView-->
+            <!--android:id="@+id/text"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:text="@{person.name}"-->
+            <!--tools:layout_editor_absoluteX="-78dp"-->
+            <!--tools:layout_editor_absoluteY="96dp" />-->
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@{person.name}" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="@color/white"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
 
-    </android.support.constraint.ConstraintLayout>
+            <TextView
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="WORKSPACE"
+                android:fontFamily="monospace"
+                android:textColor="@color/goldenrod"
+                />
+            <com.xchallenge.tnt.ui.listView.MyListView
+                android:divider="@null"
+                android:dividerHeight="4dp"
+                android:id="@+id/id_listview_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </com.xchallenge.tnt.ui.listView.MyListView>
+
+        </LinearLayout>
+
+
+
+        <!--<Button-->
+            <!--android:id="@+id/button"-->
+            <!--android:layout_width="140dp"-->
+            <!--android:layout_height="80dp"-->
+            <!--android:layout_marginStart="8dp"-->
+            <!--android:text="Meeting"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintHorizontal_bias="0.049"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toTopOf="parent"-->
+            <!--app:layout_constraintVertical_bias="0.13"-->
+            <!--android:background="@drawable/btn_selector"-->
+            <!--android:textColor="@color/white"/>-->
+
+        <!--<Button-->
+            <!--android:id="@+id/button2"-->
+            <!--android:layout_width="140dp"-->
+            <!--android:layout_height="80dp"-->
+            <!--android:layout_marginStart="8dp"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:text="Project"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintHorizontal_bias="0.059"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/button"-->
+            <!--app:layout_constraintVertical_bias="0.041" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/button3"-->
+            <!--android:layout_width="140dp"-->
+            <!--android:layout_height="80dp"-->
+            <!--android:layout_marginStart="8dp"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:text="Device"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintHorizontal_bias="0.059"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/button2"-->
+            <!--app:layout_constraintVertical_bias="0.043" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/button5"-->
+            <!--android:layout_width="140dp"-->
+            <!--android:layout_height="80dp"-->
+            <!--android:layout_marginStart="8dp"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:text="Daily"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintHorizontal_bias="0.059"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/button3"-->
+            <!--app:layout_constraintVertical_bias="0.067" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/button4"-->
+            <!--android:layout_width="140dp"-->
+            <!--android:layout_height="80dp"-->
+            <!--android:layout_marginStart="8dp"-->
+            <!--android:layout_marginTop="16dp"-->
+            <!--android:text="Human"-->
+            <!--app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--app:layout_constraintEnd_toEndOf="parent"-->
+            <!--app:layout_constraintHorizontal_bias="0.059"-->
+            <!--app:layout_constraintStart_toStartOf="parent"-->
+            <!--app:layout_constraintTop_toBottomOf="@+id/button5"-->
+            <!--app:layout_constraintVertical_bias="0.093" />-->
+
+    </LinearLayout>
+
+    </ScrollView>
 </layout>
